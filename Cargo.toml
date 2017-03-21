@@ -1,0 +1,7 @@
+[package]
+name = "hex2ascii"
+version = "0.1.0"
+authors = ["gavyn <gavyn.riebau@gmail.com>"]
+
+[dependencies]
+hex = "0.2.0"
