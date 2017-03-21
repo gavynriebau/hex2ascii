@@ -2,6 +2,12 @@
 name = "hex2ascii"
 version = "0.1.0"
 authors = ["gavyn <gavyn.riebau@gmail.com>"]
+description = "command line app that converts hex values into ascii"
+homepage = "https://github.com/gavynriebau/hex2ascii"
+repository = "https://github.com/gavynriebau/hex2ascii"
+keywords = ["hex", "hexadecimal", "ascii", "convert", "cli"]
+categories = ["command-line-utilities", "encoding", "text-processing"]
+license = "MIT"
 
 [dependencies]
 hex = "0.2.0"
