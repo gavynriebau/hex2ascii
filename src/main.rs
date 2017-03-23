@@ -2,7 +2,6 @@
 extern crate rustc_serialize;
 extern crate clap;
 
-use std::string;
 use std::io;
 use std::io::{Write, BufRead};
 use clap::{App, Arg};
