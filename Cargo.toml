@@ -1,6 +1,6 @@
 [package]
 name = "hex2ascii"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["gavyn <gavyn.riebau@gmail.com>"]
 description = "command line app that converts hex values into ascii"
 homepage = "https://github.com/gavynriebau/hex2ascii"
@@ -10,5 +10,5 @@ categories = ["command-line-utilities", "encoding", "text-processing"]
 license = "MIT"
 
 [dependencies]
-hex = "0.2.0"
 clap = "2.21.2"
+rustc-serialize = "0.3.23"
