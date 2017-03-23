@@ -23,7 +23,7 @@ fn main() {
 
     let matches = App::new("hex2ascii")
         .author("Gavyn Riebau")
-        .version("0.1.0")
+        .version("0.2.1")
         .about("Converts hex values to ascii")
         .arg(
             Arg::with_name("verbose")
