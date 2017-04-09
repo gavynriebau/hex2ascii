@@ -9,7 +9,7 @@ use std::error::Error;
 
 fn from_hex(s : String) -> Result<Vec<u8>, Box<Error>> {
     match rustc_serialize::hex::FromHex::from_hex(s.as_str()) {
-        Ok(d) => Ok(d),
+        Ok(raw) => Ok(raw),
         Err(e) => Err(Box::new(e))
     }
 }
@@ -43,8 +43,6 @@ fn main() {
     let mut stdout = io::stdout();
     let stdin = io::stdin();
 
-    let verbose = matches.is_present("verbose");
-
     for line in stdin.lock().lines() {
 
         // If the "reverse" flag is supplied we convert to hex rather than from hex.
@@ -61,7 +59,7 @@ fn main() {
                 let _ = stdout.flush();
             },
             Err(e) => {
-                if verbose {
+                if matches.is_present("verbose") {
                     let _ = stderr.write_fmt(format_args!("Error: {}\n", e));
                     let _ = stderr.flush();
                 }

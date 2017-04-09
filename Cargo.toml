@@ -1,6 +1,6 @@
 [package]
 name = "hex2ascii"
-version = "0.2.1"
+version = "1.0.0"
 authors = ["gavyn <gavyn.riebau@gmail.com>"]
 description = "command line app that converts hex values into ascii"
 homepage = "https://github.com/gavynriebau/hex2ascii"
