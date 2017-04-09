@@ -1,6 +1,16 @@
 # hex2ascii
 Command line app that converts hex values to/from ASCII.
 
+### Installation
+
+If you've not already done so, install rust:
+https://www.rust-lang.org/
+
+Then install via cargo using:
+```bash
+$ cargo install hex2ascii
+```
+
 ### Help
 
 ```bash
@@ -29,4 +39,3 @@ $ echo "Hello world" | hex2ascii -r
 $ echo "48656c6c6f20776f726c64" | hex2ascii
 Hello world
 ```
-
