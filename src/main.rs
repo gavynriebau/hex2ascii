@@ -1,21 +1,22 @@
 
-extern crate rustc_serialize;
+extern crate hex;
 extern crate clap;
 
 use std::io;
 use std::io::{Write, BufRead};
 use clap::{App, Arg};
 use std::error::Error;
+use hex::{ToHex};
 
 fn from_hex(s : String) -> Result<Vec<u8>, Box<Error>> {
-    match rustc_serialize::hex::FromHex::from_hex(s.as_str()) {
+    match hex::FromHex::from_hex(s) {
         Ok(raw) => Ok(raw),
         Err(e) => Err(Box::new(e))
     }
 }
 
 fn to_hex(s : String) -> Result<Vec<u8>, Box<Error>> {
-    let hex = rustc_serialize::hex::ToHex::to_hex(s.as_bytes());
+    let hex = s.to_hex();
     Ok(hex.into_bytes())
 }
 
@@ -23,7 +24,7 @@ fn main() {
 
     let matches = App::new("hex2ascii")
         .author("Gavyn Riebau")
-        .version("0.2.1")
+        .version("1.0.1")
         .about("Converts hex values to ascii")
         .arg(
             Arg::with_name("verbose")
