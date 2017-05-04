@@ -24,7 +24,7 @@ fn main() {
 
     let matches = App::new("hex2ascii")
         .author("Gavyn Riebau")
-        .version("1.0.1")
+        .version("1.0.2")
         .about("Converts hex values to ascii")
         .arg(
             Arg::with_name("verbose")
@@ -55,8 +55,24 @@ fn main() {
 
         match process(line.unwrap()) {
             Ok(buffer) => {
-                let unencoded = String::from_utf8(buffer).unwrap();
-                println!("{}", unencoded);
+                
+                // Attempt to convert only 1 byte at a time.
+                for chunk in buffer.chunks(1) {
+
+                    match String::from_utf8(chunk.to_vec()) {
+                        Ok(unencoded) => {
+                            print!("{}", unencoded);
+                            let _ = stdout.flush();
+                        },
+                        Err(e) => {
+                            if matches.is_present("verbose") {
+                                let _ = stderr.write_fmt(format_args!("Error: {} - {:?}\n", e, chunk));
+                                let _ = stderr.flush();
+                            }
+                        }
+                    }
+                }
+                println!("");
                 let _ = stdout.flush();
             },
             Err(e) => {
